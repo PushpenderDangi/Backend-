@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { registerUser } from "../controllers/user.controller.js";
+import { loginUser, logoutUser, registerUser, refreshAccessToken } from "../controllers/user.controller.js";
 //below line is used to upload the images etc
 import { upload } from "./middleware/multer.middleware.js"
+import { config } from "dotenv";
 
 const router = Router()
 
@@ -20,4 +21,15 @@ router.route('/register').post(
     registerUser
     )
 
+router.route("/login").post(loginUser)
+
+//secured routes
+router.route("/logout").post(verifyJWT, logoutUser)
+router.route("/referesh-token").post(refreshAccessToken)
+
+
+
+
 export default router
+
+git config --global user.email "pushpender0006@gmail.com"
