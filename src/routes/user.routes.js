@@ -32,4 +32,3 @@ router.route("/referesh-token").post(refreshAccessToken)
 
 export default router
 
-git config --global user.email "pushpender0006@gmail.com"
